@@ -37,22 +37,15 @@ struct TrieNode {
 };
 
 /*!
-* @brief Calcula o número de componentes conexos na matriz usando vizinhança-4.
+* @brief Cria um novo node.
 *
-* Utiliza a técnica de rotulação de formas, para tal criando uma matriz temporária
-* do mesmo tamanho da de entrada: este algoritmo utiliza memória na ordem O(w*h).
+* Faz com que a pos e o len de cada TrieNode sejam zerados e  
+* os seus ponteiros para filhos sejam nulos.
 *
-* Cada "pixel" é processado em uma fila (FIFO) de tamanho dinâmico, assim como
-* seus vizinhos e assim por diante ate percorrer todos os caminhos do componente.
-*
-* @param E Matriz de entrada.
-* @param height Número de linhas da matriz.
-* @param width Número de colunas da matriz.
-* @return int Número de componentes conexos (formas) encontrados. Zero implica
-* que a matriz é nula/vazia.
+* @return struct TrieNode* Ponteiro para o novo node criado.
 */
 struct TrieNode*
-getNode();
+initNode();
 /*!
 * @brief Adiciona a string word na trie.
 *
@@ -63,21 +56,16 @@ getNode();
 */
 void insert(struct TrieNode* root, std::string word, int pos, int len);
 /*!
-* @brief Calcula o número de componentes conexos na matriz usando vizinhança-4.
+* @brief Procura uma palavra na trie.
 *
-* Utiliza a técnica de rotulação de formas, para tal criando uma matriz temporária
-* do mesmo tamanho da de entrada: este algoritmo utiliza memória na ordem O(w*h).
+* @param word Palavra a ser procurada na trie.
+* @param root Root da trie.
 *
-* Cada "pixel" é processado em uma fila (FIFO) de tamanho dinâmico, assim como
-* seus vizinhos e assim por diante ate percorrer todos os caminhos do componente.
-*
-* @param E Matriz de entrada.
-* @param height Número de linhas da matriz.
-* @param width Número de colunas da matriz.
-* @return int Número de componentes conexos (formas) encontrados. Zero implica
-* que a matriz é nula/vazia.
+* @return pair<int,int> Par que indica se a palavra pertence ao dicionário, é apenas um prefixo ou que
+* não pertence ao dicionário. Se a palavra pertence ao dicionário o primeiro 
+* representa a posição da palavra e o segundo o comprimeto da linha. 
 */
-std::pair<int, int> search(struct TrieNode*, std::string);
+std::pair<int, int> search(struct TrieNode*, std::string word);
 
 // implementacao incluida aqui
 #include "trie.inc"
