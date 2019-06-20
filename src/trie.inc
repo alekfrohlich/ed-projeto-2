@@ -10,7 +10,7 @@ struct TrieNode* getNode() {
 	return pNode;
 }
 
-void insert(struct TrieNode* root, string key, int pos, int len) {
+void insert(struct TrieNode* root, std::string key, int pos, int len) {
 	struct TrieNode* pCrawl = root;
 
 	for (int i = 0; i < key.length(); i++) {
@@ -25,7 +25,7 @@ void insert(struct TrieNode* root, string key, int pos, int len) {
 	pCrawl->length = len;
 }
 
-std::pair<int, int> search(struct TrieNode* root, string key) {
+std::pair<int, int> search(struct TrieNode* root, std::string key) {
 	std::pair<int, int> p;
 	auto pCrawl = root;
 
