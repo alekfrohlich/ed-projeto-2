@@ -2,13 +2,20 @@
 #include <iostream>
 #include <string>
 
+/*!
+ * @brief Programa principal, realiza a leitura e processamento dos dicionários
+ * e indica o que as palavras da entrada são, se a palavra pertence ao
+ * dicionário é impresso a sua posição e o comprimeto da linha em que a palavra
+ * está.
+ *
+ */
 int main() {
 	using namespace std;
 	TrieNode* root = getNode();
 
 	string filename;
 
-	cin >> filename;  // entrada
+	cin >> filename;
 	int posProx = 0;
 
 	string line;
@@ -38,7 +45,7 @@ int main() {
 
 	string word;
 	pair<int, int> p;
-	while (1) {  // leitura das palavras ate' encontrar "0"
+	while (1) {
 		cin >> word;
 		if (word.compare("0") == 0) {
 			break;
