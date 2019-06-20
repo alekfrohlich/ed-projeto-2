@@ -29,7 +29,7 @@ namespace structures {
 */
 struct TrieNode {
 	struct TrieNode* children[ALPHABET_SIZE];
-	int pos, length;
+	int pos, len;
 };
 
 /*!
