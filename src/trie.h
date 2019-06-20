@@ -17,6 +17,9 @@ getNode();
 void insert(struct TrieNode*, std::string, int, int);
 std::pair<int, int> search(struct TrieNode*, std::string);
 
+// implementacao incluida aqui
+#include "trie.inc"
+
 }  // namespace structures
 
 #endif
