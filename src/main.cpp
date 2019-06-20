@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <fstream>
 using namespace std;
 
 const int ALPHABET_SIZE = 26;
@@ -9,18 +9,14 @@ struct TrieNode
 {
     struct TrieNode *children[ALPHABET_SIZE];
 
-    // isEndOfWord is true if the node represents
-    // end of a word
-    bool isEndOfWord;
     unsigned long pos, length;
 };
 
 // Returns new trie node (initialized to NULLs)
-struct TrieNode *getNode(void)
+struct TrieNode *getNode()
 {
     struct TrieNode *pNode =  new TrieNode;
 
-    pNode->isEndOfWord = false;
     pNode->pos = 0;
     pNode->length = 0;
 
@@ -33,7 +29,7 @@ struct TrieNode *getNode(void)
 // If not present, inserts key into trie
 // If the key is prefix of trie node, just
 // marks leaf node
-void insert(struct TrieNode *root, string key)
+void insert(struct TrieNode *root, string key, int pos, int len)
 {
     struct TrieNode *pCrawl = root;
 
@@ -45,9 +41,10 @@ void insert(struct TrieNode *root, string key)
 
         pCrawl = pCrawl->children[index];
     }
-
+    
     // mark last node as leaf
-    pCrawl->isEndOfWord = true;
+    pCrawl->pos = pos;
+    pCrawl->length = len;
 }
 
 // Returns true if key presents in trie, else
@@ -55,7 +52,7 @@ void insert(struct TrieNode *root, string key)
 pair<int, int> search(struct TrieNode *root, string key)
 {
     pair<int, int> p;
-    struct TrieNode *pCrawl = root;
+    auto pCrawl = root;
 
     for (int i = 0; i < key.length(); i++)
     {
@@ -69,7 +66,7 @@ pair<int, int> search(struct TrieNode *root, string key)
         pCrawl = pCrawl->children[index];
     }
 
-    if(pCrawl != NULL && !pCrawl->isEndOfWord){
+    if (pCrawl && pCrawl->length == 0) {
         p.first = 0;
         p.second = 0;
         return p;
@@ -83,11 +80,13 @@ pair<int, int> search(struct TrieNode *root, string key)
 
 int main() {
     
-    struct TrieNode *root = getNode();
+    auto root = getNode();
 
     string filename;
 
     cin >> filename;  // entrada
+
+    auto posProx = 0;
 
     string line;
     ifstream myfile (filename);
@@ -97,12 +96,12 @@ int main() {
             int i;
             for(i=1;i<line.length();i++){
             word+=line[i];
-                if(line(i) == ']')
+                if(line[i] == ']')
                     break;
             }
             word[i] = '\0';
-            length = line.length();
-            insert(root, word, posProx,length)
+            auto length = line.length();
+            insert(root, word, posProx,length);
             posProx += line.length();
         }
         myfile.close();
@@ -111,14 +110,14 @@ int main() {
     cout << filename << endl;  // esta linha deve ser removida
     
     string word;
-    pair p;
+    pair<int,int> p;
     while (1) {  // leitura das palavras ate' encontrar "0"
         cin >> word;
         if (word.compare("0") == 0) {
             break;
         }
         cout << word << endl;
-        p = trie.search(word);
+        p = search(root, word);
         if(p.first == 0 && p.second == 0)
             printf("is prefix\n");
         else if(p.first == -1)
@@ -129,3 +128,4 @@ int main() {
 
     return 0;
 }
+
