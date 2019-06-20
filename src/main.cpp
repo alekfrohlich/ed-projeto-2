@@ -1,138 +1,126 @@
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <string>
 using namespace std;
 
 const int ALPHABET_SIZE = 26;
 
 // trie node
-struct TrieNode
-{
-    struct TrieNode *children[ALPHABET_SIZE];
+struct TrieNode {
+	struct TrieNode* children[ALPHABET_SIZE];
 
-    unsigned long pos, length;
+	unsigned long pos, length;
 };
 
 // Returns new trie node (initialized to NULLs)
-struct TrieNode *getNode()
-{
-    struct TrieNode *pNode =  new TrieNode;
+struct TrieNode* getNode() {
+	struct TrieNode* pNode = new TrieNode;
 
-    pNode->pos = 0;
-    pNode->length = 0;
+	pNode->pos = 0;
+	pNode->length = 0;
 
-    for (int i = 0; i < ALPHABET_SIZE; i++)
-        pNode->children[i] = NULL;
+	for (int i = 0; i < ALPHABET_SIZE; i++)
+		pNode->children[i] = NULL;
 
-    return pNode;
+	return pNode;
 }
 
 // If not present, inserts key into trie
 // If the key is prefix of trie node, just
 // marks leaf node
-void insert(struct TrieNode *root, string key, int pos, int len)
-{
-    struct TrieNode *pCrawl = root;
+void insert(struct TrieNode* root, string key, int pos, int len) {
+	struct TrieNode* pCrawl = root;
 
-    for (int i = 0; i < key.length(); i++)
-    {
-        int index = key[i] - 'a';
-        if (!pCrawl->children[index])
-            pCrawl->children[index] = getNode();
+	for (int i = 0; i < key.length(); i++) {
+		int index = key[i] - 'a';
+		if (!pCrawl->children[index])
+			pCrawl->children[index] = getNode();
 
-        pCrawl = pCrawl->children[index];
-    }
-    
-    // mark last node as leaf
-    pCrawl->pos = pos;
-    pCrawl->length = len;
+		pCrawl = pCrawl->children[index];
+	}
+
+	// mark last node as leaf
+	pCrawl->pos = pos;
+	pCrawl->length = len;
 }
 
 // Returns true if key presents in trie, else
 // false
-pair<int, int> search(struct TrieNode *root, string key)
-{
-    pair<int, int> p;
-    auto pCrawl = root;
+pair<int, int> search(struct TrieNode* root, string key) {
+	pair<int, int> p;
+	auto pCrawl = root;
 
-    for (int i = 0; i < key.length(); i++)
-    {
-        int index = key[i] - 'a';
-        if (!pCrawl->children[index]){
-            p.first = -1;
-            p.second = -1;
-            return p;
-        }
+	for (int i = 0; i < key.length(); i++) {
+		int index = key[i] - 'a';
+		if (!pCrawl->children[index]) {
+			p.first = -1;
+			p.second = -1;
+			return p;
+		}
 
-        pCrawl = pCrawl->children[index];
-    }
+		pCrawl = pCrawl->children[index];
+	}
 
-    if (pCrawl && pCrawl->length == 0) {
-        p.first = 0;
-        p.second = 0;
-        return p;
-    }
+	if (pCrawl && pCrawl->length == 0) {
+		p.first = 0;
+		p.second = 0;
+		return p;
+	}
 
-    p.first = pCrawl->pos;
-    p.second = pCrawl->length;
+	p.first = pCrawl->pos;
+	p.second = pCrawl->length;
 
-    return p;
+	return p;
 }
 
 int main() {
-    
-    auto root = getNode();
+	auto root = getNode();
 
-    string filename;
+	string filename;
 
-    cin >> filename;  // entrada
-    // cout << filename << endl;  // esta linha deve ser removida
-    auto posProx = 0;
+	cin >> filename;  // entrada
+	auto posProx = 0;
 
-    string line;
-    ifstream myfile (filename);
-    if (myfile.is_open()) {
-        while ( getline (myfile,line) ) {
-            string word;
-            int i;
-            if(line[0]!='['){
-                posProx += line.length()+1;
-                continue;
-            }
-            for(i=1;i<line.length();i++){
-                if(line[i] == ']')
-                    break;
-                word+=line[i];
-            }
-            word[i] = '\0';
-            // cout << word << "  oooo\n";
-            auto length = line.length();
-            insert(root, word, posProx,length);
-            posProx += line.length()+1;
-        }
-        myfile.close();
-    } else {
-        printf("Nao abriu arquivo\n");
-    }
+	string line;
+	ifstream myfile(filename);
+	if (myfile.is_open()) {
+		while (getline(myfile, line)) {
+			string word;
+			int i;
+			if (line[0] != '[') {
+				posProx += line.length() + 1;
+				continue;
+			}
+			for (i = 1; i < line.length(); i++) {
+				if (line[i] == ']')
+					break;
+				word += line[i];
+			}
+			word[i] = '\0';
+			auto length = line.length();
+			insert(root, word, posProx, length);
+			posProx += line.length() + 1;
+		}
+		myfile.close();
+	} else {
+		printf("Nao abriu arquivo\n");
+	}
 
-    // printf("olaaaa\n");
-    string word;
-    pair<int,int> p;
-    while (1) {  // leitura das palavras ate' encontrar "0"
-        cin >> word;
-        if (word.compare("0") == 0) {
-            break;
-        }
-        // cout << word << endl;
-        p = search(root, word);
-        if(p.first == 0 && p.second == 0)
-            printf("is prefix\n");
-        else if(p.first == -1)
-            printf("is not prefix\n");
-        else
-            printf("%d %d\n",p.first, p.second );
-    }
+	string word;
+	pair<int, int> p;
+	while (1) {  // leitura das palavras ate' encontrar "0"
+		cin >> word;
+		if (word.compare("0") == 0) {
+			break;
+		}
+		p = search(root, word);
+		if (p.first == 0 && p.second == 0)
+			printf("is prefix\n");
+		else if (p.first == -1)
+			printf("is not prefix\n");
+		else
+			printf("%d %d\n", p.first, p.second);
+	}
 
-    return 0;
+	return 0;
 }
-
