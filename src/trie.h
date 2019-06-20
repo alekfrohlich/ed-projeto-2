@@ -8,8 +8,8 @@
  * @copyright Copyright (c) 2019
  */
 
-#ifndef STRUCTURES_TRIE
-#define STRUCTURES_TRIE
+#ifndef STRUCTURES_TRIE_H
+#define STRUCTURES_TRIE_H
 
 #include <stdexcept>
 #include <string>
@@ -29,12 +29,12 @@ public:
     //! Busca chave na Trie.
     std::pair<int,int> search(const std::string& key);
 private:
-	//! Elemento-Nodo da Trie.
+	//! Lista de sub-Tries.
 	Trie *children[26];
-	//! Posicao
-	unsigned long pos;
-	//! Comprimento
-	unsigned long length;
+	//! Posicao da chave no dicionario.
+	unsigned long pos{0u};
+	//! Comprimento da chave no dicionario.
+	unsigned long length{0u};
 }
 
 };
