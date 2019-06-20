@@ -1,85 +1,15 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-using namespace std;
-
-const int ALPHABET_SIZE = 26;
-
-// trie node
-struct TrieNode {
-	struct TrieNode* children[ALPHABET_SIZE];
-
-	unsigned long pos, length;
-};
-
-// Returns new trie node (initialized to NULLs)
-struct TrieNode* getNode() {
-	struct TrieNode* pNode = new TrieNode;
-
-	pNode->pos = 0;
-	pNode->length = 0;
-
-	for (int i = 0; i < ALPHABET_SIZE; i++)
-		pNode->children[i] = NULL;
-
-	return pNode;
-}
-
-// If not present, inserts key into trie
-// If the key is prefix of trie node, just
-// marks leaf node
-void insert(struct TrieNode* root, string key, int pos, int len) {
-	struct TrieNode* pCrawl = root;
-
-	for (int i = 0; i < key.length(); i++) {
-		int index = key[i] - 'a';
-		if (!pCrawl->children[index])
-			pCrawl->children[index] = getNode();
-
-		pCrawl = pCrawl->children[index];
-	}
-
-	// mark last node as leaf
-	pCrawl->pos = pos;
-	pCrawl->length = len;
-}
-
-// Returns true if key presents in trie, else
-// false
-pair<int, int> search(struct TrieNode* root, string key) {
-	pair<int, int> p;
-	auto pCrawl = root;
-
-	for (int i = 0; i < key.length(); i++) {
-		int index = key[i] - 'a';
-		if (!pCrawl->children[index]) {
-			p.first = -1;
-			p.second = -1;
-			return p;
-		}
-
-		pCrawl = pCrawl->children[index];
-	}
-
-	if (pCrawl && pCrawl->length == 0) {
-		p.first = 0;
-		p.second = 0;
-		return p;
-	}
-
-	p.first = pCrawl->pos;
-	p.second = pCrawl->length;
-
-	return p;
-}
 
 int main() {
-	auto root = getNode();
+	using namespace std;
+	TrieNode* root = getNode();
 
 	string filename;
 
 	cin >> filename;  // entrada
-	auto posProx = 0;
+	int posProx = 0;
 
 	string line;
 	ifstream myfile(filename);
@@ -97,7 +27,7 @@ int main() {
 				word += line[i];
 			}
 			word[i] = '\0';
-			auto length = line.length();
+			int length = line.length();
 			insert(root, word, posProx, length);
 			posProx += line.length() + 1;
 		}
