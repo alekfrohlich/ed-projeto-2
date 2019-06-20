@@ -1,3 +1,12 @@
+/*!
+* @file trie.h
+* @author Alek Frohlich, Nícolas Goeldner
+* @brief Código da trie.
+* @version 1.0
+* @date 2019-06-20
+*
+* @copyright Copyright (c) 2019
+*/
 #ifndef STRUCTURES_TRIE_H
 #define STRUCTURES_TRIE_H
 
@@ -10,7 +19,7 @@ namespace structures {
 struct TrieNode {
 	struct TrieNode* children[ALPHABET_SIZE];
 	int pos, length;
-}
+};
 
 struct TrieNode*
 getNode();

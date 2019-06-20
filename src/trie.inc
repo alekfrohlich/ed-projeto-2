@@ -1,3 +1,12 @@
+/*!
+* @file trie.inc
+* @author Alek Frohlich, Nícolas Goeldner
+* @brief Código do inc.
+* @version 1.0
+* @date 2019-06-20
+*
+* @copyright Copyright (c) 2019
+*/
 struct TrieNode* getNode() {
 	struct TrieNode* pNode = new TrieNode;
 
