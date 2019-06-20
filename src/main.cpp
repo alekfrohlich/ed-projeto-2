@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 
 const int ALPHABET_SIZE = 26;
@@ -73,7 +74,7 @@ pair<int, int> search(struct TrieNode *root, string key)
     }
 
     p.first = pCrawl->pos;
-    p.first = pCrawl->length;
+    p.second = pCrawl->length;
 
     return p;
 }
@@ -85,7 +86,7 @@ int main() {
     string filename;
 
     cin >> filename;  // entrada
-
+    // cout << filename << endl;  // esta linha deve ser removida
     auto posProx = 0;
 
     string line;
@@ -94,21 +95,27 @@ int main() {
         while ( getline (myfile,line) ) {
             string word;
             int i;
+            if(line[0]!='['){
+                posProx += line.length()+1;
+                continue;
+            }
             for(i=1;i<line.length();i++){
-            word+=line[i];
                 if(line[i] == ']')
                     break;
+                word+=line[i];
             }
             word[i] = '\0';
+            // cout << word << "  oooo\n";
             auto length = line.length();
             insert(root, word, posProx,length);
-            posProx += line.length();
+            posProx += line.length()+1;
         }
         myfile.close();
+    } else {
+        printf("Nao abriu arquivo\n");
     }
 
-    cout << filename << endl;  // esta linha deve ser removida
-    
+    // printf("olaaaa\n");
     string word;
     pair<int,int> p;
     while (1) {  // leitura das palavras ate' encontrar "0"
@@ -116,7 +123,7 @@ int main() {
         if (word.compare("0") == 0) {
             break;
         }
-        cout << word << endl;
+        // cout << word << endl;
         p = search(root, word);
         if(p.first == 0 && p.second == 0)
             printf("is prefix\n");
