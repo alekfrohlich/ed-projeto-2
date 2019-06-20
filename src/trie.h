@@ -25,31 +25,16 @@ public:
     //! Destrutor.
     ~Trie();
     //! Insere chave na Trie.
-    void insert(const std::string& key);
+    void insert(const std::string& key, unsigned long pos, unsigned long length);
     //! Busca chave na Trie.
     std::pair<int,int> search(const std::string& key);
 private:
-//! Elemento-Nodo da Trie.
-class Node {
- private:
- 	//! Construtor
- 	Node();
- 	//! Insere nodo
- 	void insert(const std::string& key);
- 	//! Busca nodo
- 	std::pair<int,int> search(const std::string& key);
- 	//! Filhos
- 	Node *children[26];
- 	//! Eh palavra?
- 	bool isWord;
- 	//! Posicao
- 	unsigned long pos;
- 	//! Comprimento
- 	unsigned long length;
-
-};
-
-    Node * root{nullptr};
+	//! Elemento-Nodo da Trie.
+	Trie *children[26];
+	//! Posicao
+	unsigned long pos;
+	//! Comprimento
+	unsigned long length;
 }
 
 };
