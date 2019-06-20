@@ -20,10 +20,10 @@ namespace structures {
 //! Trie.
 class Trie {
 public: 
+    //! Construtor Padrao.
+    Trie();   
     //! Construtor.
-    Trie();
-    //! Destrutor.
-    ~Trie();
+    Trie(unsigned long p, unsigned long l);
     //! Insere chave na Trie.
     void insert(const std::string& key, unsigned long pos, unsigned long length);
     //! Busca chave na Trie.

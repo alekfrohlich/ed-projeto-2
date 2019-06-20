@@ -8,10 +8,27 @@
  * @copyright Copyright (c) 2019
  */
 
-Trie::Trie() {}
+Trie::Trie() {
+    for (int i = 0; i < 26; i++)
+        children[i] = nullptr;
+}
 
-Trie::~Trie() {}
+Trie(unsigned long p, unsigned long l) {
+    for (int i = 0; i < 26; i++)
+        children[i] = nullptr;
+    pos = p;
+    length = l;
+}
 
-void Trie::insert(const std::string& key, unsigned long pos, unsigned long length) {}
+void Trie::insert(const std::string& key, unsigned long pos, unsigned long length) {
+    for (int i = 0; i < key.length(); i++) {
+        int index = key[i] - 'a';
+        if (!children[index])
+            children[index] = new Trie();
+        
+    }
+}
 
-std::pair<int,int> Trie::search(const std::string& key);
+std::pair<int,int> Trie::search(const std::string& key) {
+
+}
