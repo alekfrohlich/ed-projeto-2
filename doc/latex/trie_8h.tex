@@ -1,0 +1,65 @@
+\hypertarget{trie_8h}{}\section{Referência ao ficheiro src/trie.h}
+\label{trie_8h}\index{src/trie.\+h@{src/trie.\+h}}
+
+
+Código da trie.  
+
+
+Diagrama de dependências de inclusão para trie.\+h\+:
+% FIG 0
+Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro\+:
+% FIG 1
+\subsection*{Componentes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structstructures_1_1_trie_node}{structures\+::\+Trie\+Node}
+\begin{DoxyCompactList}\small\item\em Árvore de prefixos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacestructures}{structures}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{trie_8h_a6572f1706059832f94025fa12c6c45ed}{A\+L\+P\+H\+A\+B\+E\+T\+\_\+\+S\+I\+ZE}~26
+\end{DoxyCompactItemize}
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+struct Trie\+Node $\ast$ \hyperlink{namespacestructures_afc28a3496cec97529bc5f5cff4df903b}{structures\+::init\+Node} ()
+\begin{DoxyCompactList}\small\item\em Aloca memória para um novo \hyperlink{structstructures_1_1_trie_node}{Trie\+Node}. \end{DoxyCompactList}\item 
+void \hyperlink{namespacestructures_a4fb9d800dc8b1cd76e984a2f8e80aeae}{structures\+::insert} (struct Trie\+Node $\ast$root, std\+::string word, int pos, int len)
+\begin{DoxyCompactList}\small\item\em Adiciona uma chave na árvore de prefixos. \end{DoxyCompactList}\item 
+std\+::pair$<$ int, int $>$ \hyperlink{namespacestructures_ac7c63428ed7d247bf85b9fca19e7d7dd}{structures\+::search} (struct Trie\+Node $\ast$, std\+::string word)
+\begin{DoxyCompactList}\small\item\em Procura por uma palavra na árvore de prefixos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+Código da trie. 
+
+\begin{DoxyAuthor}{Autor}
+Alek Frohlich, Nícolas Goeldner 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versão}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Data}
+2019-\/06-\/20
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}
+
+
+\subsection{Documentação das macros}
+\mbox{\Hypertarget{trie_8h_a6572f1706059832f94025fa12c6c45ed}\label{trie_8h_a6572f1706059832f94025fa12c6c45ed}} 
+\index{trie.\+h@{trie.\+h}!A\+L\+P\+H\+A\+B\+E\+T\+\_\+\+S\+I\+ZE@{A\+L\+P\+H\+A\+B\+E\+T\+\_\+\+S\+I\+ZE}}
+\index{A\+L\+P\+H\+A\+B\+E\+T\+\_\+\+S\+I\+ZE@{A\+L\+P\+H\+A\+B\+E\+T\+\_\+\+S\+I\+ZE}!trie.\+h@{trie.\+h}}
+\subsubsection{\texorpdfstring{A\+L\+P\+H\+A\+B\+E\+T\+\_\+\+S\+I\+ZE}{ALPHABET\_SIZE}}
+{\footnotesize\ttfamily \#define A\+L\+P\+H\+A\+B\+E\+T\+\_\+\+S\+I\+ZE~26}
+
+
+
+Definido na linha 15 do ficheiro trie.\+h.
+

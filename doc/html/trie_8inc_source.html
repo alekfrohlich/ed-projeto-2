@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trabalho de Implementação II: Código-Fonte de src/trie.inc</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trabalho de Implementação II
+   &#160;<span id="projectnumber">v1.0</span>
+   </div>
+   <div id="projectbrief">Identificação de prefixos e Indexação de dicionários</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">trie.inc</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="trie_8inc.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="trie_8inc.html#adce0346c8a841ab1d9108bca9209456a">   11</a></span>&#160;<span class="keyword">struct </span>TrieNode* <a class="code" href="trie_8inc.html#adce0346c8a841ab1d9108bca9209456a">initNode</a>() {</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">auto</span> tNode = <span class="keyword">new</span> TrieNode;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    tNode-&gt;pos = 0;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    tNode-&gt;len = 0;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="trie_8h.html#a6572f1706059832f94025fa12c6c45ed">ALPHABET_SIZE</a>; i++)</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        tNode-&gt;children[i] = NULL;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">return</span> tNode;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="trie_8inc.html#a9a7f39351f2c01eda907df97a6d97267">   23</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="trie_8inc.html#a9a7f39351f2c01eda907df97a6d97267">insert</a>(<span class="keyword">struct</span> TrieNode* root, std::string key, <span class="keywordtype">int</span> pos, <span class="keywordtype">int</span> len) {</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">auto</span> it = root;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; key.length(); i++) {</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">int</span> index = key[i] - <span class="charliteral">&#39;a&#39;</span>;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">if</span> (!it-&gt;children[index])</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            it-&gt;children[index] = <a class="code" href="trie_8inc.html#adce0346c8a841ab1d9108bca9209456a">initNode</a>();</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        it = it-&gt;children[index];</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    it-&gt;pos = pos;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    it-&gt;len = len;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="trie_8inc.html#a3c9d3332949146639636c0659d6f5c6f">   38</a></span>&#160;std::pair&lt;int, int&gt; <a class="code" href="trie_8inc.html#a3c9d3332949146639636c0659d6f5c6f">search</a>(<span class="keyword">struct</span> TrieNode* root, std::string key) {</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::pair&lt;int, int&gt; p;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">auto</span> it = root;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; key.length(); i++) {</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">int</span> index = key[i] - <span class="charliteral">&#39;a&#39;</span>;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">if</span> (!it-&gt;children[index]) {</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            p.first = -1;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            p.second = -1;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">return</span> p;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        it = it-&gt;children[index];</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span> (it &amp;&amp; it-&gt;len == 0) {</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        p.first = 0;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        p.second = 0;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> p;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    p.first = it-&gt;pos;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    p.second = it-&gt;len;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> p;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div><div class="ttc" id="trie_8h_html_a6572f1706059832f94025fa12c6c45ed"><div class="ttname"><a href="trie_8h.html#a6572f1706059832f94025fa12c6c45ed">ALPHABET_SIZE</a></div><div class="ttdeci">#define ALPHABET_SIZE</div><div class="ttdef"><b>Definition:</b> <a href="trie_8h_source.html#l00015">trie.h:15</a></div></div>
+<div class="ttc" id="trie_8inc_html_a9a7f39351f2c01eda907df97a6d97267"><div class="ttname"><a href="trie_8inc.html#a9a7f39351f2c01eda907df97a6d97267">insert</a></div><div class="ttdeci">void insert(struct TrieNode *root, std::string key, int pos, int len)</div><div class="ttdef"><b>Definition:</b> <a href="trie_8inc_source.html#l00023">trie.inc:23</a></div></div>
+<div class="ttc" id="trie_8inc_html_a3c9d3332949146639636c0659d6f5c6f"><div class="ttname"><a href="trie_8inc.html#a3c9d3332949146639636c0659d6f5c6f">search</a></div><div class="ttdeci">std::pair&lt; int, int &gt; search(struct TrieNode *root, std::string key)</div><div class="ttdef"><b>Definition:</b> <a href="trie_8inc_source.html#l00038">trie.inc:38</a></div></div>
+<div class="ttc" id="trie_8inc_html_adce0346c8a841ab1d9108bca9209456a"><div class="ttname"><a href="trie_8inc.html#adce0346c8a841ab1d9108bca9209456a">initNode</a></div><div class="ttdeci">struct TrieNode * initNode()</div><div class="ttdef"><b>Definition:</b> <a href="trie_8inc_source.html#l00011">trie.inc:11</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trabalho de Implementação II: Referência ao namespace structures</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trabalho de Implementação II
+   &#160;<span id="projectnumber">v1.0</span>
+   </div>
+   <div id="projectbrief">Identificação de prefixos e Indexação de dicionários</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Componentes</a> &#124;
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência ao namespace structures</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Componentes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstructures_1_1_trie_node.html">TrieNode</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Árvore de prefixos.  <a href="structstructures_1_1_trie_node.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:afc28a3496cec97529bc5f5cff4df903b"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structstructures_1_1_trie_node.html">TrieNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestructures.html#afc28a3496cec97529bc5f5cff4df903b">initNode</a> ()</td></tr>
+<tr class="memdesc:afc28a3496cec97529bc5f5cff4df903b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aloca memória para um novo <a class="el" href="structstructures_1_1_trie_node.html" title="Árvore de prefixos. ">TrieNode</a>.  <a href="#afc28a3496cec97529bc5f5cff4df903b">Mais...</a><br /></td></tr>
+<tr class="separator:afc28a3496cec97529bc5f5cff4df903b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fb9d800dc8b1cd76e984a2f8e80aeae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestructures.html#a4fb9d800dc8b1cd76e984a2f8e80aeae">insert</a> (struct <a class="el" href="structstructures_1_1_trie_node.html">TrieNode</a> *root, std::string word, int pos, int len)</td></tr>
+<tr class="memdesc:a4fb9d800dc8b1cd76e984a2f8e80aeae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona uma chave na árvore de prefixos.  <a href="#a4fb9d800dc8b1cd76e984a2f8e80aeae">Mais...</a><br /></td></tr>
+<tr class="separator:a4fb9d800dc8b1cd76e984a2f8e80aeae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7c63428ed7d247bf85b9fca19e7d7dd"><td class="memItemLeft" align="right" valign="top">std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestructures.html#ac7c63428ed7d247bf85b9fca19e7d7dd">search</a> (struct <a class="el" href="structstructures_1_1_trie_node.html">TrieNode</a> *, std::string word)</td></tr>
+<tr class="memdesc:ac7c63428ed7d247bf85b9fca19e7d7dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procura por uma palavra na árvore de prefixos.  <a href="#ac7c63428ed7d247bf85b9fca19e7d7dd">Mais...</a><br /></td></tr>
+<tr class="separator:ac7c63428ed7d247bf85b9fca19e7d7dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="afc28a3496cec97529bc5f5cff4df903b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc28a3496cec97529bc5f5cff4df903b">&#9670;&nbsp;</a></span>initNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structstructures_1_1_trie_node.html">TrieNode</a> * structures::initNode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Aloca memória para um novo <a class="el" href="structstructures_1_1_trie_node.html" title="Árvore de prefixos. ">TrieNode</a>. </p>
+<p>A posição e o comprimento de cada <a class="el" href="structstructures_1_1_trie_node.html" title="Árvore de prefixos. ">TrieNode</a> começam zerados. Além disso, todos as posições do vetor de nodos filhos começam nulas.</p>
+<dl class="section return"><dt>Retorna</dt><dd>struct TrieNode* Ponteiro para o novo <a class="el" href="structstructures_1_1_trie_node.html" title="Árvore de prefixos. ">TrieNode</a> criado. </dd></dl>
+
+<p class="definition">Definido na linha <a class="el" href="trie_8h_source.html#l00012">12</a> do ficheiro <a class="el" href="trie_8h_source.html">trie.h</a>.</p>
+
+</div>
+</div>
+<a id="a4fb9d800dc8b1cd76e984a2f8e80aeae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fb9d800dc8b1cd76e984a2f8e80aeae">&#9670;&nbsp;</a></span>insert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void structures::insert </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structstructures_1_1_trie_node.html">TrieNode</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>word</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adiciona uma chave na árvore de prefixos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>Root da árvore. </td></tr>
+    <tr><td class="paramname">word</td><td>Palavra para inserir. </td></tr>
+    <tr><td class="paramname">pos</td><td>Posicao no dicionario da palavra a ser inserida. </td></tr>
+    <tr><td class="paramname">len</td><td>Comprimento da linha no dicionario que possui a palavra a ser inserida. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="trie_8h_source.html#l00024">24</a> do ficheiro <a class="el" href="trie_8h_source.html">trie.h</a>.</p>
+
+</div>
+</div>
+<a id="ac7c63428ed7d247bf85b9fca19e7d7dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7c63428ed7d247bf85b9fca19e7d7dd">&#9670;&nbsp;</a></span>search()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; int, int &gt; structures::search </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structstructures_1_1_trie_node.html">TrieNode</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>word</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Procura por uma palavra na árvore de prefixos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">word</td><td>Palavra a ser procurada na trie. </td></tr>
+    <tr><td class="paramname">root</td><td>Raíz da árvore.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>pair&lt;int,int&gt; Par que indica se a palavra pertence ao dicionário, é apenas um prefixo ou que não pertence ao dicionário. Se a palavra pertencer ao dicionário, a primeira entrada representa a posição da palavra enquanto a segunda, o comprimeto da linha. </dd></dl>
+
+<p class="definition">Definido na linha <a class="el" href="trie_8h_source.html#l00039">39</a> do ficheiro <a class="el" href="trie_8h_source.html">trie.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

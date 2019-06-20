@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trabalho de Implementação II: Código-Fonte de src/trie.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trabalho de Implementação II
+   &#160;<span id="projectnumber">v1.0</span>
+   </div>
+   <div id="projectbrief">Identificação de prefixos e Indexação de dicionários</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">trie.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="trie_8h.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef STRUCTURES_TRIE_H</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define STRUCTURES_TRIE_H</span></div><div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespacestructures.html#afc28a3496cec97529bc5f5cff4df903b">   12</a></span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="trie_8h.html#a6572f1706059832f94025fa12c6c45ed">   15</a></span>&#160;<span class="preprocessor">#define ALPHABET_SIZE 26</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="namespacestructures.html">   17</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacestructures.html">structures</a> {</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structstructures_1_1_trie_node.html">   30</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structstructures_1_1_trie_node.html">TrieNode</a> {</div><div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structstructures_1_1_trie_node.html#ab34ab18a2b5a71b8e2081566d3ed56d6">   31</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structstructures_1_1_trie_node.html">TrieNode</a>* <a class="code" href="structstructures_1_1_trie_node.html#ab34ab18a2b5a71b8e2081566d3ed56d6">children</a>[<a class="code" href="trie_8h.html#a6572f1706059832f94025fa12c6c45ed">ALPHABET_SIZE</a>];</div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structstructures_1_1_trie_node.html#a56bdf19e4eadeafdb4480b55c5758ced">   32</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structstructures_1_1_trie_node.html#a56bdf19e4eadeafdb4480b55c5758ced">pos</a>, <a class="code" href="structstructures_1_1_trie_node.html#a4cc910f321fc31a5d51b65ad0fe338c9">len</a>;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">struct </span><a class="code" href="structstructures_1_1_trie_node.html">TrieNode</a>*</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<a class="code" href="namespacestructures.html#afc28a3496cec97529bc5f5cff4df903b">initNode</a>();</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacestructures.html#a4fb9d800dc8b1cd76e984a2f8e80aeae">insert</a>(<span class="keyword">struct</span> <a class="code" href="structstructures_1_1_trie_node.html">TrieNode</a>* root, std::string word, <span class="keywordtype">int</span> <a class="code" href="structstructures_1_1_trie_node.html#a56bdf19e4eadeafdb4480b55c5758ced">pos</a>, <span class="keywordtype">int</span> <a class="code" href="structstructures_1_1_trie_node.html#a4cc910f321fc31a5d51b65ad0fe338c9">len</a>);</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;std::pair&lt;int, int&gt; <a class="code" href="namespacestructures.html#ac7c63428ed7d247bf85b9fca19e7d7dd">search</a>(<span class="keyword">struct</span> <a class="code" href="structstructures_1_1_trie_node.html">TrieNode</a>*, std::string word);</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">// implementacao incluida aqui</span></div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="trie_8inc.html">trie.inc</a>&quot;</span></div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}  <span class="comment">// namespace structures</span></div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="namespacestructures_html_a4fb9d800dc8b1cd76e984a2f8e80aeae"><div class="ttname"><a href="namespacestructures.html#a4fb9d800dc8b1cd76e984a2f8e80aeae">structures::insert</a></div><div class="ttdeci">void insert(struct TrieNode *root, std::string word, int pos, int len)</div><div class="ttdoc">Adiciona uma chave na árvore de prefixos. </div><div class="ttdef"><b>Definition:</b> <a href="trie_8h_source.html#l00024">trie.h:24</a></div></div>
+<div class="ttc" id="structstructures_1_1_trie_node_html"><div class="ttname"><a href="structstructures_1_1_trie_node.html">structures::TrieNode</a></div><div class="ttdoc">Árvore de prefixos. </div><div class="ttdef"><b>Definition:</b> <a href="trie_8h_source.html#l00030">trie.h:30</a></div></div>
+<div class="ttc" id="namespacestructures_html_afc28a3496cec97529bc5f5cff4df903b"><div class="ttname"><a href="namespacestructures.html#afc28a3496cec97529bc5f5cff4df903b">structures::initNode</a></div><div class="ttdeci">struct TrieNode * initNode()</div><div class="ttdoc">Aloca memória para um novo TrieNode. </div><div class="ttdef"><b>Definition:</b> <a href="trie_8h_source.html#l00012">trie.h:12</a></div></div>
+<div class="ttc" id="namespacestructures_html"><div class="ttname"><a href="namespacestructures.html">structures</a></div><div class="ttdef"><b>Definition:</b> <a href="trie_8h_source.html#l00017">trie.h:17</a></div></div>
+<div class="ttc" id="trie_8h_html_a6572f1706059832f94025fa12c6c45ed"><div class="ttname"><a href="trie_8h.html#a6572f1706059832f94025fa12c6c45ed">ALPHABET_SIZE</a></div><div class="ttdeci">#define ALPHABET_SIZE</div><div class="ttdef"><b>Definition:</b> <a href="trie_8h_source.html#l00015">trie.h:15</a></div></div>
+<div class="ttc" id="structstructures_1_1_trie_node_html_a56bdf19e4eadeafdb4480b55c5758ced"><div class="ttname"><a href="structstructures_1_1_trie_node.html#a56bdf19e4eadeafdb4480b55c5758ced">structures::TrieNode::pos</a></div><div class="ttdeci">int pos</div><div class="ttdef"><b>Definition:</b> <a href="trie_8h_source.html#l00032">trie.h:32</a></div></div>
+<div class="ttc" id="structstructures_1_1_trie_node_html_ab34ab18a2b5a71b8e2081566d3ed56d6"><div class="ttname"><a href="structstructures_1_1_trie_node.html#ab34ab18a2b5a71b8e2081566d3ed56d6">structures::TrieNode::children</a></div><div class="ttdeci">struct TrieNode * children[ALPHABET_SIZE]</div><div class="ttdef"><b>Definition:</b> <a href="trie_8h_source.html#l00031">trie.h:31</a></div></div>
+<div class="ttc" id="namespacestructures_html_ac7c63428ed7d247bf85b9fca19e7d7dd"><div class="ttname"><a href="namespacestructures.html#ac7c63428ed7d247bf85b9fca19e7d7dd">structures::search</a></div><div class="ttdeci">std::pair&lt; int, int &gt; search(struct TrieNode *, std::string word)</div><div class="ttdoc">Procura por uma palavra na árvore de prefixos. </div><div class="ttdef"><b>Definition:</b> <a href="trie_8h_source.html#l00039">trie.h:39</a></div></div>
+<div class="ttc" id="structstructures_1_1_trie_node_html_a4cc910f321fc31a5d51b65ad0fe338c9"><div class="ttname"><a href="structstructures_1_1_trie_node.html#a4cc910f321fc31a5d51b65ad0fe338c9">structures::TrieNode::len</a></div><div class="ttdeci">int len</div><div class="ttdef"><b>Definition:</b> <a href="trie_8h_source.html#l00032">trie.h:32</a></div></div>
+<div class="ttc" id="trie_8inc_html"><div class="ttname"><a href="trie_8inc.html">trie.inc</a></div><div class="ttdoc">Código do inc. </div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

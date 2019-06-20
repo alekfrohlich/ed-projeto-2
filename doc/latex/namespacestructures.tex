@@ -1,0 +1,87 @@
+\hypertarget{namespacestructures}{}\section{Referência ao namespace structures}
+\label{namespacestructures}\index{structures@{structures}}
+\subsection*{Componentes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structstructures_1_1_trie_node}{Trie\+Node}
+\begin{DoxyCompactList}\small\item\em Árvore de prefixos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structstructures_1_1_trie_node}{Trie\+Node} $\ast$ \hyperlink{namespacestructures_afc28a3496cec97529bc5f5cff4df903b}{init\+Node} ()
+\begin{DoxyCompactList}\small\item\em Aloca memória para um novo \hyperlink{structstructures_1_1_trie_node}{Trie\+Node}. \end{DoxyCompactList}\item 
+void \hyperlink{namespacestructures_a4fb9d800dc8b1cd76e984a2f8e80aeae}{insert} (struct \hyperlink{structstructures_1_1_trie_node}{Trie\+Node} $\ast$root, std\+::string word, int pos, int len)
+\begin{DoxyCompactList}\small\item\em Adiciona uma chave na árvore de prefixos. \end{DoxyCompactList}\item 
+std\+::pair$<$ int, int $>$ \hyperlink{namespacestructures_ac7c63428ed7d247bf85b9fca19e7d7dd}{search} (struct \hyperlink{structstructures_1_1_trie_node}{Trie\+Node} $\ast$, std\+::string word)
+\begin{DoxyCompactList}\small\item\em Procura por uma palavra na árvore de prefixos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentação das funções}
+\mbox{\Hypertarget{namespacestructures_afc28a3496cec97529bc5f5cff4df903b}\label{namespacestructures_afc28a3496cec97529bc5f5cff4df903b}} 
+\index{structures@{structures}!init\+Node@{init\+Node}}
+\index{init\+Node@{init\+Node}!structures@{structures}}
+\subsubsection{\texorpdfstring{init\+Node()}{initNode()}}
+{\footnotesize\ttfamily struct \hyperlink{structstructures_1_1_trie_node}{Trie\+Node} $\ast$ structures\+::init\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Aloca memória para um novo \hyperlink{structstructures_1_1_trie_node}{Trie\+Node}. 
+
+A posição e o comprimento de cada \hyperlink{structstructures_1_1_trie_node}{Trie\+Node} começam zerados. Além disso, todos as posições do vetor de nodos filhos começam nulas.
+
+\begin{DoxyReturn}{Retorna}
+struct Trie\+Node$\ast$ Ponteiro para o novo \hyperlink{structstructures_1_1_trie_node}{Trie\+Node} criado. 
+\end{DoxyReturn}
+
+
+Definido na linha 12 do ficheiro trie.\+h.
+
+\mbox{\Hypertarget{namespacestructures_a4fb9d800dc8b1cd76e984a2f8e80aeae}\label{namespacestructures_a4fb9d800dc8b1cd76e984a2f8e80aeae}} 
+\index{structures@{structures}!insert@{insert}}
+\index{insert@{insert}!structures@{structures}}
+\subsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily void structures\+::insert (\begin{DoxyParamCaption}\item[{struct \hyperlink{structstructures_1_1_trie_node}{Trie\+Node} $\ast$}]{root,  }\item[{std\+::string}]{word,  }\item[{int}]{pos,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+
+
+Adiciona uma chave na árvore de prefixos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em root} & Root da árvore. \\
+\hline
+{\em word} & Palavra para inserir. \\
+\hline
+{\em pos} & Posicao no dicionario da palavra a ser inserida. \\
+\hline
+{\em len} & Comprimento da linha no dicionario que possui a palavra a ser inserida. \\
+\hline
+\end{DoxyParams}
+
+
+Definido na linha 24 do ficheiro trie.\+h.
+
+\mbox{\Hypertarget{namespacestructures_ac7c63428ed7d247bf85b9fca19e7d7dd}\label{namespacestructures_ac7c63428ed7d247bf85b9fca19e7d7dd}} 
+\index{structures@{structures}!search@{search}}
+\index{search@{search}!structures@{structures}}
+\subsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily std\+::pair$<$ int, int $>$ structures\+::search (\begin{DoxyParamCaption}\item[{struct \hyperlink{structstructures_1_1_trie_node}{Trie\+Node} $\ast$}]{root,  }\item[{std\+::string}]{word }\end{DoxyParamCaption})}
+
+
+
+Procura por uma palavra na árvore de prefixos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em word} & Palavra a ser procurada na trie. \\
+\hline
+{\em root} & Raíz da árvore.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+pair$<$int,int$>$ Par que indica se a palavra pertence ao dicionário, é apenas um prefixo ou que não pertence ao dicionário. Se a palavra pertencer ao dicionário, a primeira entrada representa a posição da palavra enquanto a segunda, o comprimeto da linha. 
+\end{DoxyReturn}
+
+
+Definido na linha 39 do ficheiro trie.\+h.
+
