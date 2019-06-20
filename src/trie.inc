@@ -1,13 +1,14 @@
 /*!
-* @file trie.inc
-* @author Alek Frohlich, Nícolas Goeldner
-* @brief Código do inc.
-* @version 1.0
-* @date 2019-06-20
-*
-* @copyright Copyright (c) 2019
-*/
-struct TrieNode* getNode() {
+ * @file trie.inc
+ * @author Alek Frohlich, Nícolas Goeldner
+ * @brief Código do inc.
+ * @version 1.0
+ * @date 2019-06-20
+ *
+ * @copyright Copyright (c) 2019
+ */
+
+struct TrieNode* initNode() {
 	auto tNode = new TrieNode;
 
 	tNode->pos = 0;
@@ -20,12 +21,12 @@ struct TrieNode* getNode() {
 }
 
 void insert(struct TrieNode* root, std::string key, int pos, int len) {
-	 auto it = root;
+	auto it = root;
 
 	for (int i = 0; i < key.length(); i++) {
 		int index = key[i] - 'a';
 		if (!it->children[index])
-			it->children[index] = getNode();
+			it->children[index] = initNode();
 
 		it = it->children[index];
 	}
@@ -60,3 +61,4 @@ std::pair<int, int> search(struct TrieNode* root, std::string key) {
 
 	return p;
 }
+

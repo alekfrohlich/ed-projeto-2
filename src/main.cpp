@@ -1,17 +1,19 @@
 /*!
-* @file main.cpp
-* @author Alek Frohlich, Nícolas Goeldner
-* @brief Código do programa principal.
-* @version 1.0
-* @date 2019-06-20
-*
-* @copyright Copyright (c) 2019
-*/
+ * @file main.cpp
+ * @author Alek Frohlich, Nícolas Goeldner
+ * @brief Código do programa principal.
+ * @version 1.0
+ * @date 2019-06-20
+ *
+ * @copyright Copyright (c) 2019
+ */
+
 #include <fstream>
 #include <iostream>
 #include <string>
 
 #include "trie.h"
+
 /*!
  * @brief Programa principal, realiza a leitura e processamento dos dicionários
  * e indica o que as palavras da entrada são, se a palavra pertence ao
@@ -22,7 +24,7 @@
 int main() {
 	using namespace std;
 	using namespace structures;
-	TrieNode* root = getNode();
+	TrieNode* root = initNode();
 
 	string filename;
 
