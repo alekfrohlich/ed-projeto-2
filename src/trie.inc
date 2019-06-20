@@ -1,4 +1,4 @@
-struct TrieNode* structures::getNode() {
+struct TrieNode* getNode() {
 	struct TrieNode* pNode = new TrieNode;
 
 	pNode->pos = 0;
@@ -10,8 +10,7 @@ struct TrieNode* structures::getNode() {
 	return pNode;
 }
 
-void structures::insert(struct TrieNode* root,
-                        string key, int pos, int len) {
+void insert(struct TrieNode* root, string key, int pos, int len) {
 	struct TrieNode* pCrawl = root;
 
 	for (int i = 0; i < key.length(); i++) {
@@ -26,3 +25,29 @@ void structures::insert(struct TrieNode* root,
 	pCrawl->length = len;
 }
 
+std::pair<int, int> search(struct TrieNode* root, string key) {
+	std::pair<int, int> p;
+	auto pCrawl = root;
+
+	for (int i = 0; i < key.length(); i++) {
+		int index = key[i] - 'a';
+		if (!pCrawl->children[index]) {
+			p.first = -1;
+			p.second = -1;
+			return p;
+		}
+
+		pCrawl = pCrawl->children[index];
+	}
+
+	if (pCrawl && pCrawl->length == 0) {
+		p.first = 0;
+		p.second = 0;
+		return p;
+	}
+
+	p.first = pCrawl->pos;
+	p.second = pCrawl->length;
+
+	return p;
+}
