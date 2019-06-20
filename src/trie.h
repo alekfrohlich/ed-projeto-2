@@ -30,7 +30,24 @@ public:
     std::pair<int,int> search(const std::string& key);
 private:
 //! Elemento-Nodo da Trie.
-class Node {};
+class Node {
+ private:
+ 	//! Construtor
+ 	Node();
+ 	//! Insere nodo
+ 	void insert(const std::string& key);
+ 	//! Busca nodo
+ 	std::pair<int,int> search(const std::string& key);
+ 	//! Filhos
+ 	Node *children[26];
+ 	//! Eh palavra?
+ 	bool isWord;
+ 	//! Posicao
+ 	unsigned long pos;
+ 	//! Comprimento
+ 	unsigned long length;
+
+};
 
     Node * root{nullptr};
 }
