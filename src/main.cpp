@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 
+#include "trie.h"
 /*!
  * @brief Programa principal, realiza a leitura e processamento dos dicionários
  * e indica o que as palavras da entrada são, se a palavra pertence ao
@@ -11,6 +12,7 @@
  */
 int main() {
 	using namespace std;
+	using namespace structures;
 	TrieNode* root = getNode();
 
 	string filename;
