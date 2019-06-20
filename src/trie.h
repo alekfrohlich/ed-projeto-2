@@ -3,13 +3,20 @@
 
 #include <string>
 
+#define ALPHABET_SIZE 26
+
+namespace structures {
+
 struct TrieNode {
-    struct TrieNode* children[];
-    int pos, length; 
+	struct TrieNode* children[ALPHABET_SIZE];
+	int pos, length;
 }
 
-struct TrieNode* getNode();
+struct TrieNode*
+getNode();
 void insert(struct TrieNode*, std::string, int, int);
 std::pair<int, int> search(struct TrieNode*, std::string);
+
+}  // namespace structures
 
 #endif
