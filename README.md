@@ -1,4 +1,4 @@
-# Trabalho de Implementação II - identificação de prefixos e indexação de dicionários
+# Trabalho de Implementação II - Identificação de prefixos e Indexação de dicionários
 
 ## Objetivo 
 
