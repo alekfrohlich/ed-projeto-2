@@ -5,7 +5,6 @@ int main() {
     using namespace std;
 
     string filename;
-    string word;
 
     cin >> filename;  // entrada
 
@@ -30,12 +29,21 @@ int main() {
 
     cout << filename << endl;  // esta linha deve ser removida
     
+    string word;
+    pair p;
     while (1) {  // leitura das palavras ate' encontrar "0"
         cin >> word;
         if (word.compare("0") == 0) {
             break;
         }
         cout << word << endl;
+        p = trie.search(word);
+        if(p.first == 0 && p.second == 0)
+            printf("is prefix\n");
+        else if(p.first == -1)
+            printf("is not prefix\n");
+        else
+            printf("%d %d\n",p.first, p.second );
     }
 
     return 0;
