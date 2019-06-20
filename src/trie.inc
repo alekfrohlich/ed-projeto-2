@@ -8,55 +8,55 @@
 * @copyright Copyright (c) 2019
 */
 struct TrieNode* getNode() {
-	struct TrieNode* pNode = new TrieNode;
+	auto tNode = new TrieNode;
 
-	pNode->pos = 0;
-	pNode->length = 0;
+	tNode->pos = 0;
+	tNode->len = 0;
 
 	for (int i = 0; i < ALPHABET_SIZE; i++)
-		pNode->children[i] = NULL;
+		tNode->children[i] = NULL;
 
-	return pNode;
+	return tNode;
 }
 
 void insert(struct TrieNode* root, std::string key, int pos, int len) {
-	struct TrieNode* pCrawl = root;
+	 auto it = root;
 
 	for (int i = 0; i < key.length(); i++) {
 		int index = key[i] - 'a';
-		if (!pCrawl->children[index])
-			pCrawl->children[index] = getNode();
+		if (!it->children[index])
+			it->children[index] = getNode();
 
-		pCrawl = pCrawl->children[index];
+		it = it->children[index];
 	}
 
-	pCrawl->pos = pos;
-	pCrawl->length = len;
+	it->pos = pos;
+	it->len = len;
 }
 
 std::pair<int, int> search(struct TrieNode* root, std::string key) {
 	std::pair<int, int> p;
-	auto pCrawl = root;
+	auto it = root;
 
 	for (int i = 0; i < key.length(); i++) {
 		int index = key[i] - 'a';
-		if (!pCrawl->children[index]) {
+		if (!it->children[index]) {
 			p.first = -1;
 			p.second = -1;
 			return p;
 		}
 
-		pCrawl = pCrawl->children[index];
+		it = it->children[index];
 	}
 
-	if (pCrawl && pCrawl->length == 0) {
+	if (it && it->len == 0) {
 		p.first = 0;
 		p.second = 0;
 		return p;
 	}
 
-	p.first = pCrawl->pos;
-	p.second = pCrawl->length;
+	p.first = it->pos;
+	p.second = it->len;
 
 	return p;
 }
